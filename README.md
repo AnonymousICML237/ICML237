@@ -16,3 +16,12 @@ sh train.sh
 Test models
 --
 sh test.sh
+
+Robustness evaluation
+--
+### Empirical Worst Case Decision Boundary Distance
+sh db.sh
+### Empirical Adversarial Insensitivity
+sh eai.sh
+### Corruption and Perturbation Robustness Evaluation
+sh cpre.sh
