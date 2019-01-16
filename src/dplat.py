@@ -25,8 +25,8 @@ os.environ["CUDA_VISIBLE_DEVICES"] = GPUID
 
 # Training settings
 parser = argparse.ArgumentParser(description='lat implementation')
-parser.add_argument('--batchsize', type=int, default=64, help='training batch size')
-parser.add_argument('--epoch', type=int, default=2, help='number of epochs to train for')
+parser.add_argument('--batchsize', type=int, default=128, help='training batch size')
+parser.add_argument('--epoch', type=int, default=40, help='number of epochs to train for')
 parser.add_argument('--input_ch', type=int, default=3, help='input image channels')
 parser.add_argument('--lr', type=float, default=0.0002, help='Learning Rate')
 parser.add_argument('--alpha', type=float, default=0.6, help='alpha')
@@ -121,7 +121,7 @@ def train_op(model):
                 #-------------------------------------------------
                 if args.model == 'vgg':
                     if args.enable_lat:
-                        model.save_grad()
+                        model.save_grad(args.alpha)
                 #-------------------------------------------------
 
             # test acc for validation set

@@ -178,12 +178,27 @@ class VGG16(nn.Module):
         return out
 
     # save adversarial gradient during backward propagation
-    def save_grad(self):
-        for i in range(1, 14):  # z1 ~ z12
-            exec('self.z{}_reg.data = self.alpha * self.z{}_reg.data + self.z{}.grad / torch.norm(torch.norm(torch.norm(self.z{}.grad, p = 2,dim = 2),p = 2,dim = 2),p = 2,dim = 1).view(self.batchsize,1,1,1).repeat(1,self.reg_size_list[{}-1][1],self.reg_size_list[{}-1][2],self.reg_size_list[{}-1][3])'.format(i, i, i, i, i, i, i))
-        self.x_reg.data = self.alpha * self.x_reg.data + \
-                           self.input.grad / torch.norm(torch.norm(torch.norm(self.input.grad, p=2, dim=2), p=2, dim=2), p=2, dim=1).view(self.batchsize, 1, 1,
-                                                                                               1).repeat(1, 3, 32, 32)
+    def save_grad(self, alpha):
+        for i in range(1, 14):  # z1 ~ z13
+            exec('self.z{}_reg.data = alpha * self.z{}_reg.data + self.z{}.grad / torch.norm(torch.norm(torch.norm(self.z{}.grad, p = 2,dim = 2),p = 2,dim = 2),p = 2,dim = 1).view(self.batch_size,1,1,1).repeat(1,self.reg_size_list[{}-1][1],self.reg_size_list[{}-1][2],self.reg_size_list[{}-1][3])'.format(i, i, i, i, i, i, i))
+        self.x_reg.data = alpha * self.x_reg.data + \
+                           self.input.grad / torch.norm(torch.norm(torch.norm(self.input.grad, p=2, dim=2), p=2, dim=2), p=2, dim=1).view(self.batch_size,1,1,1).repeat(1, 3, 32, 32)
+
+    def zero_reg(self):
+        self.x_reg.data = self.x_reg.data.fill_(0.0)
+        self.z1_reg.data = self.z1_reg.data.fill_(0.0)
+        self.z2_reg.data = self.z2_reg.data.fill_(0.0)
+        self.z3_reg.data = self.z3_reg.data.fill_(0.0)
+        self.z4_reg.data = self.z4_reg.data.fill_(0.0)
+        self.z5_reg.data = self.z5_reg.data.fill_(0.0)
+        self.z6_reg.data = self.z6_reg.data.fill_(0.0)
+        self.z7_reg.data = self.z7_reg.data.fill_(0.0)
+        self.z8_reg.data = self.z8_reg.data.fill_(0.0)
+        self.z9_reg.data = self.z9_reg.data.fill_(0.0)
+        self.z10_reg.data = self.z10_reg.data.fill_(0.0)
+        self.z11_reg.data = self.z11_reg.data.fill_(0.0)
+        self.z12_reg.data = self.z12_reg.data.fill_(0.0)
+        self.z13_reg.data = self.z13_reg.data.fill_(0.0)
 
     def _make_layers(self):
         layers = []
