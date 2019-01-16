@@ -34,7 +34,7 @@ sh OAT.sh
 sh NAT.sh
 * Randomization ([Xie et al.](https://arxiv.org/pdf/1711.01991))<br>
 sh RAND.sh
-* Ensemble adversarial training ([Tramer ](https://arxiv.org/pdf/1705.07204.pdf))<br>
+* Ensemble adversarial training ([Tramer et al.](https://arxiv.org/pdf/1705.07204.pdf))<br>
 sh EAT.sh
 
 Run Adversarial Attack Methods
