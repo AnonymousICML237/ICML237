@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python rand.py \
+python RAND.py \
   --batch_size 128 \
   --img_size 32 \
   --img_resize 35 \
