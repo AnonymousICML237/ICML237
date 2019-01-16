@@ -179,7 +179,7 @@ class VGG16(nn.Module):
 
     # save adversarial gradient during backward propagation
     def save_grad(self):
-        for i in range(1, 13):  # z1 ~ z12
+        for i in range(1, 14):  # z1 ~ z12
             exec('self.z{}_reg.data = self.alpha * self.z{}_reg.data + self.z{}.grad / torch.norm(torch.norm(torch.norm(self.z{}.grad, p = 2,dim = 2),p = 2,dim = 2),p = 2,dim = 1).view(self.batchsize,1,1,1).repeat(1,self.reg_size_list[{}-1][1],self.reg_size_list[{}-1][2],self.reg_size_list[{}-1][3])'.format(i, i, i, i, i, i, i))
         self.x_reg.data = self.alpha * self.x_reg.data + \
                            self.input.grad / torch.norm(torch.norm(torch.norm(self.input.grad, p=2, dim=2), p=2, dim=2), p=2, dim=1).view(self.batchsize, 1, 1,
