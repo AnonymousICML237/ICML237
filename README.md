@@ -19,12 +19,24 @@ sh test.sh
 
 Robustness evaluation
 --
-* Empirical Worst Case Decision Boundary Distance
+* Empirical Worst Case Decision Boundary Distance<br>
 sh db.sh
-### * Empirical Adversarial Insensitivity
+* Empirical Adversarial Insensitivity<br>
 sh eai.sh
-### * Corruption and Perturbation Robustness Evaluation
-sh cpre.sh
+* Corruption and Perturbation Robustness Evaluation<br>
+sh cpre1.sh and sh cpre2.sh
 
 Comparative Adversarial Defense Methods
 --
+* [OAT](https://arxiv.org/pdf/1412.6572.pdf)<br>
+sh OAT.sh
+* [NAT](https://arxiv.org/pdf/1607.02533.pdf)<br>
+sh NAT.sh
+* [Rand](https://arxiv.org/pdf/1711.01991)<br>
+sh RAND.sh
+* [EAT](https://arxiv.org/pdf/1705.07204.pdf)<br>
+sh EAT.sh
+
+Run Adversarial Attack Methods
+--
+sh attack.sh
