@@ -19,9 +19,12 @@ sh test.sh
 
 Robustness evaluation
 --
-### Empirical Worst Case Decision Boundary Distance
+### * Empirical Worst Case Decision Boundary Distance
 sh db.sh
-### Empirical Adversarial Insensitivity
+### * Empirical Adversarial Insensitivity
 sh eai.sh
-### Corruption and Perturbation Robustness Evaluation
+### * Corruption and Perturbation Robustness Evaluation
 sh cpre.sh
+
+Comparative Adversarial Defense Methods
+--
