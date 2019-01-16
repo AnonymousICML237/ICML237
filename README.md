@@ -28,7 +28,7 @@ sh cpre1.sh and sh cpre2.sh
 
 Comparative Adversarial Defense Methods
 --
-* [OAT](https://arxiv.org/pdf/1412.6572.pdf)<br>
+* OAT [Goodfellow et al.](https://arxiv.org/pdf/1412.6572.pdf)<br>
 sh OAT.sh
 * [NAT](https://arxiv.org/pdf/1607.02533.pdf)<br>
 sh NAT.sh
