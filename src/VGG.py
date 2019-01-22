@@ -37,7 +37,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.input.retain_grad()
             # LAT add saved grad to x_reg
-            input_add = self.input.add(self.epsilon / self.pro_num * torch.sign(self.x_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.x_reg.shape[1], self.x_reg.shape[2], self.x_reg.shape[3]]), std=self.gn).cuda()
+            input_add = self.input.add(self.epsilon / self.pro_num * self.x_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.x_reg.shape[1], self.x_reg.shape[2], self.x_reg.shape[3]]), std=self.gn).cuda()
         else:
             input_add = self.input
 
@@ -45,7 +45,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z1.retain_grad()
             # LAT add saved grad to z1_reg
-            z1_add = self.z1.add(self.epsilon / self.pro_num * torch.sign(self.z1_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z1_reg.shape[1], self.z1_reg.shape[2], self.z1_reg.shape[3]]), std=self.gn).cuda()
+            z1_add = self.z1.add(self.epsilon / self.pro_num * self.z1_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z1_reg.shape[1], self.z1_reg.shape[2], self.z1_reg.shape[3]]), std=self.gn).cuda()
         else:
             z1_add = self.z1
         a1 = self.features[2](self.features[1](z1_add)) #bn1,relu
@@ -54,7 +54,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z2.retain_grad()
             # LAT add saved grad to z2_reg
-            z2_add = self.z2.add(self.epsilon / self.pro_num * torch.sign(self.z2_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z2_reg.shape[1], self.z2_reg.shape[2], self.z2_reg.shape[3]]), std=self.gn).cuda()
+            z2_add = self.z2.add(self.epsilon / self.pro_num * self.z2_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z2_reg.shape[1], self.z2_reg.shape[2], self.z2_reg.shape[3]]), std=self.gn).cuda()
         else:
             z2_add = self.z2
         a2 = self.features[5](self.features[4](z2_add)) #bn2,relu
@@ -65,7 +65,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z3.retain_grad()
             # LAT add saved grad to z3_reg
-            z3_add = self.z3.add(self.epsilon / self.pro_num * torch.sign(self.z3_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z3_reg.shape[1], self.z3_reg.shape[2], self.z3_reg.shape[3]]), std=self.gn).cuda()
+            z3_add = self.z3.add(self.epsilon / self.pro_num * self.z3_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z3_reg.shape[1], self.z3_reg.shape[2], self.z3_reg.shape[3]]), std=self.gn).cuda()
         else:
             z3_add = self.z3
         a3 = self.features[9](self.features[8](z3_add)) #bn3,relu
@@ -74,7 +74,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z4.retain_grad()
             # LAT add saved grad to z4_reg
-            z4_add = self.z4.add(self.epsilon / self.pro_num * torch.sign(self.z4_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z4_reg.shape[1], self.z4_reg.shape[2], self.z4_reg.shape[3]]), std=self.gn).cuda()
+            z4_add = self.z4.add(self.epsilon / self.pro_num * self.z4_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z4_reg.shape[1], self.z4_reg.shape[2], self.z4_reg.shape[3]]), std=self.gn).cuda()
         else:
             z4_add = self.z4
         a4 = self.features[12](self.features[11](z4_add)) #bn2,relu
@@ -85,7 +85,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z5.retain_grad()
             # LAT add saved grad to z5_reg
-            z5_add = self.z5.add(self.epsilon / self.pro_num * torch.sign(self.z5_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z5_reg.shape[1], self.z5_reg.shape[2], self.z5_reg.shape[3]]), std=self.gn).cuda()
+            z5_add = self.z5.add(self.epsilon / self.pro_num * self.z5_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z5_reg.shape[1], self.z5_reg.shape[2], self.z5_reg.shape[3]]), std=self.gn).cuda()
         else:
             z5_add = self.z5
         a5 = self.features[16](self.features[15](z5_add)) #bn5,relu
@@ -94,7 +94,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z6.retain_grad()
             # LAT add saved grad to z6_reg
-            z6_add = self.z6.add(self.epsilon / self.pro_num * torch.sign(self.z6_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z6_reg.shape[1], self.z6_reg.shape[2], self.z6_reg.shape[3]]), std=self.gn).cuda()
+            z6_add = self.z6.add(self.epsilon / self.pro_num * self.z6_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z6_reg.shape[1], self.z6_reg.shape[2], self.z6_reg.shape[3]]), std=self.gn).cuda()
         else:
             z6_add = self.z6
         a6 = self.features[19](self.features[18](z6_add)) #bn6,relu
@@ -103,7 +103,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z7.retain_grad()
             # LAT add saved grad to z7_reg
-            z7_add = self.z7.add(self.epsilon / self.pro_num * torch.sign(self.z7_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z7_reg.shape[1], self.z7_reg.shape[2], self.z7_reg.shape[3]]), std=self.gn).cuda()
+            z7_add = self.z7.add(self.epsilon / self.pro_num * self.z7_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z7_reg.shape[1], self.z7_reg.shape[2], self.z7_reg.shape[3]]), std=self.gn).cuda()
         else:
             z7_add = self.z7
         a7 = self.features[22](self.features[21](z7_add)) #bn7,relu
@@ -114,7 +114,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z8.retain_grad()
             # LAT add saved grad to z8_reg
-            z8_add = self.z8.add(self.epsilon / self.pro_num * torch.sign(self.z8_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z8_reg.shape[1], self.z8_reg.shape[2], self.z8_reg.shape[3]]), std=self.gn).cuda()
+            z8_add = self.z8.add(self.epsilon / self.pro_num * self.z8_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z8_reg.shape[1], self.z8_reg.shape[2], self.z8_reg.shape[3]]), std=self.gn).cuda()
         else:
             z8_add = self.z8
         a8 = self.features[26](self.features[25](z8_add)) #bn8,relu
@@ -123,7 +123,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z9.retain_grad()
             # LAT add saved grad to z9_reg
-            z9_add = self.z9.add(self.epsilon / self.pro_num * torch.sign(self.z9_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z9_reg.shape[1], self.z9_reg.shape[2], self.z9_reg.shape[3]]), std=self.gn).cuda()
+            z9_add = self.z9.add(self.epsilon / self.pro_num * self.z9_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z9_reg.shape[1], self.z9_reg.shape[2], self.z9_reg.shape[3]]), std=self.gn).cuda()
         else:
             z9_add = self.z9
         a9 = self.features[29](self.features[28](z9_add)) #bn9,relu
@@ -132,7 +132,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z10.retain_grad()
             # LAT add saved grad to z10_reg
-            z10_add = self.z10.add(self.epsilon / self.pro_num * torch.sign(self.z10_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z10_reg.shape[1], self.z10_reg.shape[2], self.z10_reg.shape[3]]), std=self.gn).cuda()
+            z10_add = self.z10.add(self.epsilon / self.pro_num * self.z10_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z10_reg.shape[1], self.z10_reg.shape[2], self.z10_reg.shape[3]]), std=self.gn).cuda()
         else:
             z10_add = self.z10
         a10 = self.features[32](self.features[31](z10_add)) #bn10,relu
@@ -143,7 +143,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z11.retain_grad()
             # LAT add saved grad to z11_reg
-            z11_add = self.z11.add(self.epsilon / self.pro_num * torch.sign(self.z11_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z11_reg.shape[1], self.z11_reg.shape[2], self.z11_reg.shape[3]]), std=self.gn).cuda()
+            z11_add = self.z11.add(self.epsilon / self.pro_num * self.z11_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z11_reg.shape[1], self.z11_reg.shape[2], self.z11_reg.shape[3]]), std=self.gn).cuda()
         else:
             z11_add = self.z11
         a11 = self.features[36](self.features[35](z11_add)) #bn11,relu
@@ -152,7 +152,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z12.retain_grad()
             # LAT add saved grad to z12_reg
-            z12_add = self.z12.add(self.epsilon / self.pro_num * torch.sign(self.z12_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z12_reg.shape[1], self.z12_reg.shape[2], self.z12_reg.shape[3]]), std=self.gn).cuda()
+            z12_add = self.z12.add(self.epsilon / self.pro_num * self.z12_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z12_reg.shape[1], self.z12_reg.shape[2], self.z12_reg.shape[3]]), std=self.gn).cuda()
         else:
             z12_add = self.z12
         a12 = self.features[39](self.features[38](z12_add)) #bn12,relu
@@ -161,7 +161,7 @@ class VGG16(nn.Module):
         if self.enable_lat:
             self.z13.retain_grad()
             # LAT add saved grad to z12_reg
-            z13_add = self.z13.add(self.epsilon / self.pro_num * torch.sign(self.z13_reg.data)) + torch.normal(mean=torch.zeros([self.batch_size, self.z13_reg.shape[1], self.z13_reg.shape[2], self.z13_reg.shape[3]]), std=self.gn).cuda()
+            z13_add = self.z13.add(self.epsilon / self.pro_num * self.z13_reg.data) + torch.normal(mean=torch.zeros([self.batch_size, self.z13_reg.shape[1], self.z13_reg.shape[2], self.z13_reg.shape[3]]), std=self.gn).cuda()
         else:
             z13_add = self.z13
         a13 = self.features[42](self.features[41](z13_add)) #bn13,relu
