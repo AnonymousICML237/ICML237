@@ -17,13 +17,13 @@ Test models
 --
 sh test.sh
 
-Robustness evaluation
+Model Robustness Evaluation
 --
 * Empirical Worst Case Decision Boundary Distance<br>
 sh db.sh
-* Empirical Adversarial Insensitivity<br>
-sh eai.sh
-* Corruption and Perturbation Robustness Evaluation<br>
+* Empirical Noise Insensitivity<br>
+sh eni.sh
+* Corruption Robustness Evaluation<br>
 sh cpre1.sh and sh cpre2.sh
 
 Comparative Adversarial Defense Methods
