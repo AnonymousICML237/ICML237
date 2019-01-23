@@ -1,5 +1,5 @@
 #---------------------------------------------------------------------
-# This file includes training and testing of vanilla or dplat model
+# This file includes training and testing of vanilla or ANP model
 #---------------------------------------------------------------------
 from __future__ import print_function
 import torch
@@ -116,8 +116,8 @@ def train_op(model):
                 #nn.utils.clip_grad_norm_(model.parameters(),args.batchsize)
                 optimizer.step()
 
-                # DP-LAT: save grad in backward propagation
-                # momentum and L2 norm
+                # ANP: save grad in backward propagation
+                # L2 norm
                 #-------------------------------------------------
                 if args.model == 'vgg':
                     if args.enable_lat:
