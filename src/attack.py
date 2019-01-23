@@ -1,6 +1,5 @@
 #--------------------------------------------------------------------------
 # Attack methods including FGSM, Step-LL, IFGSM, PGD and MIFGSM in PyTorch
-# Reference from https://github.com/1Konny/FGSM and related papers
 #--------------------------------------------------------------------------
 
 import torch 
