@@ -18,5 +18,5 @@ python attack.py \
   --attack_momentum 1.0 \
   --savepath "../save_path/" \
   --imgpath "../img_path/" \
-  --dplat_epsilon 0.6 \
-  --dplat_pronum 7
+  --anp_epsilon 0.6 \
+  --anp_pronum 7
