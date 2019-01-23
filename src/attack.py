@@ -28,7 +28,7 @@ def get_bool(string):
 parser = argparse.ArgumentParser(description='attack implementation')
 parser.add_argument('--attack', default='fgsm', help='attack type to be used(fgsm, ifgsm, step_ll, pgd....)')
 parser.add_argument('--generate', type=get_bool, default=False, help='whether to generate adv examples as .p files')
-# if use iterative attack , the droplast should be set as True when attacking dplat
+# if use iterative attack , the droplast should be set as True when attacking ANP
 parser.add_argument('--droplast', type=get_bool, default=False, help='whether to drop last batch in testloader')
 parser.add_argument('--model', default='resnet', help='target model or model generate adv(resnet, vgg,...)')
 parser.add_argument('--modelpath', default="../model_path/naive_param.pkl", help='target model path')
@@ -42,9 +42,9 @@ parser.add_argument('--attack_iter', type=int, default=10, help='iteration times
 parser.add_argument('--attack_momentum', type=float, default=1.0, help='momentum paramter in Attack')
 parser.add_argument('--savepath', default="../save_path/test", help='saving path of clean and adv data')
 parser.add_argument('--imgpath', default='../img_path/eps_0.031', help='images path')
-parser.add_argument('--enable_lat', type=get_bool, default=False, help='enable lat')
-parser.add_argument('--dplat_epsilon', type=float, default=0.3, help='epsilon in dplat')
-parser.add_argument('--dplat_pronum', type=int, default=5, help='pronum in dplat')
+parser.add_argument('--enable_lat', type=get_bool, default=False, help='enable anp')
+parser.add_argument('--anp_epsilon', type=float, default=0.3, help='epsilon in anp')
+parser.add_argument('--anp_pronum', type=int, default=5, help='pronum in anp')
 parser.add_argument('--dataset', default='cifar10', help='dataset used for attacking')
 args = parser.parse_args()
 #print(args)
@@ -461,8 +461,8 @@ def save_data_label(path, test_data_cln, test_data_adv, test_label, test_label_a
 def main():
     if args.model == 'vgg':
         model = VGG16(enable_lat=args.enable_lat,
-                      epsilon=args.lat_epsilon,
-                      pro_num=args.lat_pronum,
+                      epsilon=args.anp_epsilon,
+                      pro_num=args.anp_pronum,
                       batch_size=args.model_batchsize,
                       num_classes=10,
                       if_dropout=args.dropout
