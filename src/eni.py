@@ -55,7 +55,7 @@ model_list = {
 'nat': args.model_path + "nat/naive_param.pkl",
 'eat': args.model_path + "eat/naive_param.pkl",
 'lat': args.model_path + "lat/naive_param.pkl",
-'dplat': args.model_path + "dplat/lat_param.pkl",
+'anp': args.model_path + "anp/lat_param.pkl",
 }
 
 data_list = {
@@ -80,7 +80,7 @@ eni_list = {
 'nat':list(),   
 'eat':list(),
 'lat':list(),
-'dplat':list()
+'anp':list()
 }
 
 def cal_eni(model,data):
