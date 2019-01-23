@@ -1,7 +1,7 @@
 ICML2019 Submission 237
 ==
 
-This repository contains the source code for ICML2019 submission 237 'Diversified Progressive Layerwise Adversarial Training for Improving'. We give the codes for VGG-16 on CIFAR-10.
+This repository contains the source code for ICML2019 submission 237 'Training Robust Deep Neural Networks via Adversarial Noise Propagation'. We give the codes for VGG-16 on CIFAR-10.
 
 
 Dependencies
