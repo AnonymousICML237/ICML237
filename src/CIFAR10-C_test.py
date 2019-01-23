@@ -43,7 +43,7 @@ def test_model(model,data_loader,distortion_name,model_name):
 if __name__ == '__main__': 
     parser = argparse.ArgumentParser(description='CIFAR10-C test')
     parser.add_argument('--batchsize', type=int, default=64, help='model batch size')
-    parser.add_argument('--model_name', default="DP_LAT", help='model\'s name')
+    parser.add_argument('--model_name', default="ANP", help='model\'s name')
     parser.add_argument('--model_path', default="/model_path/VGG.pkl", help='model path')
     parser.add_argument('--distotion_root', default="/distotion_root/", help='the path of the folder which contains all kinds of distotions.npy and label.npy')
     args = parser.parse_args()
