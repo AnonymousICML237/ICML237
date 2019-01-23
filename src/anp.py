@@ -209,7 +209,7 @@ def test_op(model,f=None):
 if __name__ == "__main__":
     if args.enable_lat:
         real_model_path = args.model_path + "lat_param.pkl"
-        print('loading the LAT model')
+        print('loading the ANP model')
     else:
         real_model_path = args.model_path + "naive_param.pkl"
         print('loading the naive model')
